@@ -1,0 +1,3 @@
+mainpath=$(cd `dirname $0`; pwd)/tunnelMain.py
+logpath=$(cd `dirname $0`; pwd)/log
+nohup python $mainpath >> $logpath 2>&1 &

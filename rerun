@@ -1,0 +1,17 @@
+#! /usr/bin/python2.7
+# coding:utf8
+
+import sys
+import os
+from proc import killProcess,getPid
+from configTunnel import userOfServer, server, defaultPort
+
+ssh_cmd = 'ssh -fNR {}:{}:localhost:22 {}'.format(server, defaultPort, userOfServer+"@"+server)
+
+sshlist = getPid(ssh_cmd)
+
+if len(sshlist) <= 0:
+    plist = getPid(sys.path[0]+'/tunnelMain')
+    for p in plist :
+        killProcess(int(p))
+os.popen("run")
