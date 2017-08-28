@@ -27,7 +27,7 @@ tunnel = server
 if userOfServer != '':
     userOfServer = userOfServer;
 
-ssh_cmd = 'ssh -fNR ' + binding + ':localhost:22 ' + userOfServer + '@' + server
+ssh_cmd = 'ssh -fNR ' + binding + ':localhost:22 ' + userOfServer + '@' + server + ' -p ' + serverPort
 print( '{}'.format(ssh_cmd) )
 
 def isInconnectToServer():
