@@ -5,7 +5,7 @@ import subprocess
 import time
 import os
 import signal
-from configTunnel import userOfServer, server, interval, defaultPort, waitTime
+from configTunnel import userOfServer, server, interval, serverPort, defaultPort, waitTime
 from proc import killProcess,getPid
 
 currentPath = sys.path[0]
@@ -27,7 +27,7 @@ tunnel = server
 if userOfServer != '':
     userOfServer = userOfServer;
 
-ssh_cmd = 'ssh -fNR ' + binding + ':localhost:22 ' + userOfServer + '@' + server + ' -p ' + serverPort
+ssh_cmd = 'ssh -fNR ' + binding + ':localhost:22 ' + userOfServer + '@' + server + ' -p {}'.format(serverPort)
 print( '{}'.format(ssh_cmd) )
 
 def isInconnectToServer():
